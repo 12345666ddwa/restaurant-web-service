@@ -1,0 +1,754 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>澳洲餐厅网站定制服务 | AI-Powered Restaurant Websites</title>
+<style>
+  /* ===== Reset & Base ===== */
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth;font-size:16px}
+  body{
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background: #FAF7F2;
+    color: #2C2416;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  .container{max-width:1200px;margin:0 auto;padding:0 24px}
+
+  /* ===== Typography ===== */
+  h1,h2,h3{font-weight:700;line-height:1.2}
+  h1{font-size:clamp(2rem,5vw,3.2rem);letter-spacing:-0.02em}
+  h2{font-size:clamp(1.5rem,3.5vw,2.2rem)}
+  h3{font-size:1.1rem}
+  .subtitle{font-size:1.1rem;color:#7A6E5C;max-width:600px}
+  .en{font-family:'Segoe UI',sans-serif;font-weight:400}
+
+  /* ===== Buttons ===== */
+  .btn{
+    display:inline-block;padding:14px 32px;border-radius:8px;
+    font-weight:600;font-size:1rem;text-decoration:none;
+    cursor:pointer;transition:all 0.25s;border:none;
+  }
+  .btn-primary{background:#C8A052;color:#fff}
+  .btn-primary:hover{background:#B0893C;transform:translateY(-1px);box-shadow:0 4px 16px rgba(200,160,82,0.35)}
+  .btn-outline{background:transparent;color:#C8A052;border:2px solid #C8A052}
+  .btn-outline:hover{background:#C8A052;color:#fff}
+  .btn-sm{padding:8px 20px;font-size:0.9rem}
+
+  /* ===== Hero ===== */
+  .hero{
+    padding:80px 0 60px;text-align:center;
+    background: linear-gradient(180deg, #F5F0E8 0%, #FAF7F2 100%);
+  }
+  .hero h1{margin-bottom:16px}
+  .hero h1 span{color:#C8A052}
+  .hero .subtitle{margin:0 auto 32px;font-size:1.15rem}
+  .hero-stats{display:flex;justify-content:center;gap:48px;margin-top:40px;flex-wrap:wrap}
+  .stat-item{text-align:center}
+  .stat-num{font-size:2rem;font-weight:800;color:#C8A052}
+  .stat-label{font-size:0.9rem;color:#7A6E5C;margin-top:4px}
+
+  /* ===== Section Headers ===== */
+  .section{padding:70px 0}
+  .section-header{text-align:center;margin-bottom:48px}
+  .section-header h2{margin-bottom:12px}
+  .section-header .subtitle{margin:0 auto}
+  .section-divider{width:60px;height:3px;background:#C8A052;margin:20px auto;border-radius:2px}
+
+  /* ===== Tier Cards ===== */
+  .tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;align-items:start}
+  .tier-card{
+    background:#fff;border-radius:16px;overflow:hidden;
+    border:1px solid #E8E0D5;transition:all 0.3s;
+    position:relative;
+  }
+  .tier-card:hover{transform:translateY(-4px);box-shadow:0 12px 40px rgba(0,0,0,0.08)}
+  .tier-card.featured{border:2px solid #C8A052;transform:scale(1.03)}
+  .tier-card.featured:hover{transform:scale(1.03) translateY(-4px)}
+  .tier-badge{
+    position:absolute;top:16px;right:16px;
+    background:#C8A052;color:#fff;padding:4px 12px;
+    border-radius:20px;font-size:0.8rem;font-weight:600;
+  }
+  .tier-header{padding:32px 28px 20px;text-align:center;border-bottom:1px solid #F0EBE0}
+  .tier-icon{font-size:2.5rem;margin-bottom:8px}
+  .tier-name{font-size:1.3rem;font-weight:700;color:#2C2416}
+  .tier-name-en{font-size:0.85rem;color:#7A6E5C;margin-top:2px}
+  .tier-price{padding:20px 28px;text-align:center;background:#FAF8F3}
+  .price-amount{font-size:2rem;font-weight:800;color:#C8A052}
+  .price-range{font-size:0.85rem;color:#7A6E5C;margin-top:4px}
+  .tier-features{padding:24px 28px}
+  .tier-features ul{list-style:none}
+  .tier-features li{
+    padding:8px 0;font-size:0.92rem;display:flex;align-items:flex-start;gap:10px;
+    border-bottom:1px solid #F5F1E8;
+  }
+  .tier-features li:last-child{border-bottom:none}
+  .feat-yes{color:#5B8C5A;font-weight:700;flex-shrink:0}
+  .feat-no{color:#C4B8A8;flex-shrink:0}
+  .tier-cta{padding:0 28px 28px;text-align:center}
+  .tier-cta .btn{width:100%}
+
+  /* ===== Add-ons ===== */
+  .addons-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+  .addon-card{
+    background:#fff;border:1px solid #E8E0D5;border-radius:12px;
+    padding:20px 24px;display:flex;align-items:center;gap:16px;
+    cursor:pointer;transition:all 0.2s;user-select:none;
+  }
+  .addon-card:hover{border-color:#C8A052;background:#FFFDF8}
+  .addon-card.selected{border-color:#C8A052;background:#FFFBF0;box-shadow:0 0 0 2px rgba(200,160,82,0.2)}
+  .addon-checkbox{
+    width:22px;height:22px;border-radius:6px;border:2px solid #D4C8B0;
+    flex-shrink:0;display:flex;align-items:center;justify-content:center;
+    transition:all 0.2s;
+  }
+  .addon-card.selected .addon-checkbox{background:#C8A052;border-color:#C8A052}
+  .addon-checkbox::after{
+    content:'';width:10px;height:6px;border-left:2px solid #fff;
+    border-bottom:2px solid #fff;transform:rotate(-45deg) translateY(-1px);
+    opacity:0;transition:opacity 0.2s;
+  }
+  .addon-card.selected .addon-checkbox::after{opacity:1}
+  .addon-info{flex:1}
+  .addon-name{font-weight:600;font-size:0.95rem}
+  .addon-desc{font-size:0.82rem;color:#7A6E5C;margin-top:2px}
+  .addon-price{font-weight:700;color:#C8A052;font-size:0.95rem;white-space:nowrap}
+
+  /* ===== Calculator ===== */
+  .calculator{
+    background:#fff;border-radius:16px;padding:36px 32px;
+    border:1px solid #E8E0D5;text-align:center;
+  }
+  .calc-row{display:flex;justify-content:space-between;align-items:center;padding:12px 0;border-bottom:1px solid #F5F1E8}
+  .calc-label{font-size:0.95rem}
+  .calc-price{font-weight:600;color:#7A6E5C}
+  .calc-total{border-top:2px solid #C8A052;margin-top:12px;padding-top:16px}
+  .calc-total .calc-label{font-size:1.2rem;font-weight:700}
+  .calc-total .calc-price{font-size:1.6rem;font-weight:800;color:#C8A052}
+  .calc-note{font-size:0.82rem;color:#7A6E5C;margin-top:8px}
+
+  /* ===== Contact Form ===== */
+  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:start}
+  .form-group{margin-bottom:20px}
+  .form-group label{display:block;font-weight:600;margin-bottom:6px;font-size:0.9rem}
+  .form-group input,.form-group textarea,.form-group select{
+    width:100%;padding:12px 16px;border:1px solid #D4C8B0;border-radius:8px;
+    font-size:0.95rem;font-family:inherit;background:#FAF8F3;
+    transition:border-color 0.2s;
+  }
+  .form-group input:focus,.form-group textarea:focus,.form-group select:focus{
+    outline:none;border-color:#C8A052;box-shadow:0 0 0 3px rgba(200,160,82,0.1)
+  }
+  .form-group textarea{resize:vertical;min-height:100px}
+  .contact-info{padding:36px 32px;background:#FFFBF0;border-radius:12px;border:1px solid #E8D5A8}
+  .contact-info h3{margin-bottom:16px}
+  .contact-info p{margin-bottom:12px;font-size:0.92rem;display:flex;align-items:flex-start;gap:10px}
+  .contact-info .ci-icon{flex-shrink:0;font-size:1.2rem}
+
+  /* ===== Portfolio ===== */
+  .portfolio-grid{display:grid;grid-template-columns:1fr;max-width:700px;margin:0 auto}
+  .portfolio-card{
+    background:#fff;border-radius:16px;overflow:hidden;
+    border:1px solid #E8E0D5;transition:all 0.3s;
+  }
+  .portfolio-card:hover{box-shadow:0 8px 30px rgba(0,0,0,0.08)}
+  .portfolio-img{
+    height:300px;background: linear-gradient(135deg, #1A1612 0%, #2C2416 50%, #3D3220 100%);
+    display:flex;align-items:center;justify-content:center;color:#C8A052;
+    font-size:2rem;font-weight:700;letter-spacing:0.05em;
+  }
+  .portfolio-body{padding:24px 28px}
+  .portfolio-body h3{margin-bottom:8px}
+  .portfolio-body p{font-size:0.9rem;color:#7A6E5C;margin-bottom:16px}
+  .portfolio-tags{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+  .tag{background:#F5F1E8;padding:4px 12px;border-radius:20px;font-size:0.8rem;color:#7A6E5C}
+  .portfolio-cta{display:flex;gap:12px;flex-wrap:wrap}
+
+  /* ===== Footer ===== */
+  footer{
+    text-align:center;padding:40px 0;border-top:1px solid #E8E0D5;
+    font-size:0.9rem;color:#7A6E5C;margin-top:40px
+  }
+  footer a{color:#C8A052;text-decoration:none}
+
+  /* ===== Toast ===== */
+  .toast{
+    position:fixed;bottom:32px;left:50%;transform:translateX(-50%);
+    background:#2C2416;color:#fff;padding:14px 28px;border-radius:10px;
+    font-weight:600;opacity:0;pointer-events:none;
+    transition:opacity 0.3s;z-index:1000;
+  }
+  .toast.show{opacity:1}
+
+  /* ===== Responsive ===== */
+  @media(max-width:900px){
+    .tiers{grid-template-columns:1fr;max-width:450px;margin:0 auto}
+    .tier-card.featured{transform:none}
+    .tier-card.featured:hover{transform:translateY(-4px)}
+    .addons-grid{grid-template-columns:1fr}
+    .contact-grid{grid-template-columns:1fr}
+    .hero-stats{gap:24px}
+  }
+</style>
+</head>
+<body>
+
+<!-- ====== HERO ====== -->
+<section class="hero">
+  <div class="container">
+    <h1>为澳洲餐厅打造<span>专属网站</span></h1>
+    <p class="subtitle">
+      AI驱动的定制化建站服务 · 中文沟通 · 快速交付 · 不做模板套皮<br>
+      <span class="en">Custom Restaurant Websites — Built With AI Precision, Delivered With Care</span>
+    </p>
+    <div style="margin-top:24px">
+      <a href="#tiers" class="btn btn-primary">查看套餐 & 报价</a>
+      <a href="#contact" class="btn btn-outline" style="margin-left:12px">免费咨询</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-item">
+        <div class="stat-num">5-14天</div>
+        <div class="stat-label">标准交付周期</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">$1,500起</div>
+        <div class="stat-label">透明定价</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">一对一</div>
+        <div class="stat-label">全程中文对接</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-num">100%</div>
+        <div class="stat-label">定制设计</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== TIER SELECTION ====== -->
+<section class="section" id="tiers">
+  <div class="container">
+    <div class="section-header">
+      <h2>三种套餐，按需选择</h2>
+      <p class="subtitle">所有套餐包含移动端适配、基础SEO、1对1中文服务。点击选择套餐后，可在下方添加增值服务。</p>
+      <div class="section-divider"></div>
+    </div>
+
+    <div class="tiers">
+      <!-- Light -->
+      <div class="tier-card" data-tier="light">
+        <div class="tier-header">
+          <div class="tier-icon">🍜</div>
+          <div class="tier-name">轻量版</div>
+          <div class="tier-name-en">Light</div>
+          <div style="font-size:0.85rem;color:#7A6E5C;margin-top:4px">小微餐饮 · 快速上线</div>
+        </div>
+        <div class="tier-price">
+          <div class="price-amount">$1,500 - $2,500</div>
+          <div class="price-range">+ GST</div>
+        </div>
+        <div class="tier-features">
+          <ul>
+            <li><span class="feat-yes">✓</span> 3-5个页面（首页/菜单/关于/联系/位置）</li>
+            <li><span class="feat-yes">✓</span> 移动端响应式设计</li>
+            <li><span class="feat-yes">✓</span> Google Maps 嵌入</li>
+            <li><span class="feat-yes">✓</span> 联系表单</li>
+            <li><span class="feat-yes">✓</span> 菜单展示（文字+图片）</li>
+            <li><span class="feat-yes">✓</span> 基础SEO标签优化</li>
+            <li><span class="feat-no">—</span> 中英双语切换</li>
+            <li><span class="feat-no">—</span> 预订系统集成</li>
+            <li><span class="feat-no">—</span> 社交媒体Feed</li>
+            <li><span class="feat-no">—</span> Google Analytics</li>
+            <li><span class="feat-no">—</span> 动效与交互动画</li>
+          </ul>
+        </div>
+        <div class="tier-cta">
+          <button class="btn btn-outline select-tier" data-tier="light">选择轻量版</button>
+          <div style="font-size:0.8rem;color:#7A6E5C;margin-top:8px">交付周期：5-7天</div>
+        </div>
+      </div>
+
+      <!-- Standard -->
+      <div class="tier-card featured" data-tier="standard">
+        <div class="tier-badge">🔥 最推荐</div>
+        <div class="tier-header">
+          <div class="tier-icon">🍽️</div>
+          <div class="tier-name">标准版</div>
+          <div class="tier-name-en">Standard</div>
+          <div style="font-size:0.85rem;color:#7A6E5C;margin-top:4px">独立餐厅 · 品牌展示</div>
+        </div>
+        <div class="tier-price">
+          <div class="price-amount">$3,000 - $5,500</div>
+          <div class="price-range">+ GST</div>
+        </div>
+        <div class="tier-features">
+          <ul>
+            <li><span class="feat-yes">✓</span> 5-8个页面（含菜单详情、活动页）</li>
+            <li><span class="feat-yes">✓</span> 半定制品牌设计</li>
+            <li><span class="feat-yes">✓</span> 移动端响应式设计</li>
+            <li><span class="feat-yes">✓</span> Google Maps + 联系表单（含自动回复）</li>
+            <li><span class="feat-yes">✓</span> 菜单展示（图片+分类+价格+灯箱）</li>
+            <li><span class="feat-yes">✓</span> 基础SEO + Google Business Profile注册</li>
+            <li><span class="feat-yes">✓</span> 社交媒体Feed嵌入（Instagram）</li>
+            <li><span class="feat-yes">✓</span> Google Analytics</li>
+            <li><span class="feat-yes">✓</span> 滚动动效与交互动画</li>
+            <li><span class="feat-no">—</span> 中英双语切换 <span style="color:#C8A052;font-size:0.8rem">(+$800)</span></li>
+            <li><span class="feat-no">—</span> 预订系统集成 <span style="color:#C8A052;font-size:0.8rem">(+$600起)</span></li>
+          </ul>
+        </div>
+        <div class="tier-cta">
+          <button class="btn btn-primary select-tier" data-tier="standard">选择标准版</button>
+          <div style="font-size:0.8rem;color:#7A6E5C;margin-top:8px">交付周期：7-14天</div>
+        </div>
+      </div>
+
+      <!-- Premium -->
+      <div class="tier-card" data-tier="premium">
+        <div class="tier-header">
+          <div class="tier-icon">🥂</div>
+          <div class="tier-name">旗舰版</div>
+          <div class="tier-name-en">Premium</div>
+          <div style="font-size:0.85rem;color:#7A6E5C;margin-top:4px">中高端餐厅 · 全套方案</div>
+        </div>
+        <div class="tier-price">
+          <div class="price-amount">$6,000 - $10,000</div>
+          <div class="price-range">+ GST</div>
+        </div>
+        <div class="tier-features">
+          <ul>
+            <li><span class="feat-yes">✓</span> 8-12页全定制品牌设计</li>
+            <li><span class="feat-yes">✓</span> 移动端优先设计</li>
+            <li><span class="feat-yes">✓</span> Google Maps + 高级表单</li>
+            <li><span class="feat-yes">✓</span> 菜单展示（全功能）</li>
+            <li><span class="feat-yes">✓</span> 中英双语切换 <span style="color:#5B8C5A">（已含）</span></li>
+            <li><span class="feat-yes">✓</span> 嵌入式预订系统</li>
+            <li><span class="feat-yes">✓</span> 社媒Feed + 邮件订阅</li>
+            <li><span class="feat-yes">✓</span> 深度SEO（Schema标记）</li>
+            <li><span class="feat-yes">✓</span> Google Analytics + 数据看板</li>
+            <li><span class="feat-yes">✓</span> 活动/News页面</li>
+            <li><span class="feat-yes">✓</span> 动效 + 品牌交互动画</li>
+            <li><span class="feat-yes">✓</span> 1年托管+域名 <span style="color:#5B8C5A">（已含）</span></li>
+          </ul>
+        </div>
+        <div class="tier-cta">
+          <button class="btn btn-outline select-tier" data-tier="premium">选择旗舰版</button>
+          <div style="font-size:0.8rem;color:#7A6E5C;margin-top:8px">交付周期：14-21天</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== ADD-ONS ====== -->
+<section class="section" style="background:#F5F0E8;padding:60px 0">
+  <div class="container">
+    <div class="section-header">
+      <h2>增值服务 · 按需叠加</h2>
+      <p class="subtitle">选定套餐后，勾选需要的附加服务。所有价格透明，无隐藏费用。</p>
+      <div class="section-divider"></div>
+    </div>
+    <div class="addons-grid">
+      <div class="addon-card" data-addon="bilingual" data-price="800">
+        <div class="addon-checkbox"></div>
+        <div class="addon-info">
+          <div class="addon-name">🌐 中英双语切换</div>
+          <div class="addon-desc">全站双语支持，一键切换语言。华人区餐馆必备</div>
+        </div>
+        <div class="addon-price">+$800</div>
+      </div>
+      <div class="addon-card" data-addon="booking" data-price="600">
+        <div class="addon-checkbox"></div>
+        <div class="addon-info">
+          <div class="addon-name">📅 预订系统集成</div>
+          <div class="addon-desc">接入OpenTable等第三方预订，用户直接在网站选时间订位</div>
+        </div>
+        <div class="addon-price">+$600起</div>
+      </div>
+      <div class="addon-card" data-addon="seo" data-price="500">
+        <div class="addon-checkbox"></div>
+        <div class="addon-info">
+          <div class="addon-name">🔍 SEO深度优化</div>
+          <div class="addon-desc">Schema结构化数据标记，让Google搜索结果展示菜单和评分</div>
+        </div>
+        <div class="addon-price">+$500</div>
+      </div>
+      <div class="addon-card" data-addon="dashboard" data-price="300">
+        <div class="addon-checkbox"></div>
+        <div class="addon-info">
+          <div class="addon-name">📊 简易数据看板</div>
+          <div class="addon-desc">访问量、热门页面、用户来源一目了然</div>
+        </div>
+        <div class="addon-price">+$300</div>
+      </div>
+      <div class="addon-card" data-addon="logo" data-price="300">
+        <div class="addon-checkbox"></div>
+        <div class="addon-info">
+          <div class="addon-name">🎨 Logo设计</div>
+          <div class="addon-desc">AI辅助品牌Logo设计，含3版初稿+2轮修改</div>
+        </div>
+        <div class="addon-price">+$300起</div>
+      </div>
+      <div class="addon-card" data-addon="social" data-price="200">
+        <div class="addon-checkbox"></div>
+        <div class="addon-info">
+          <div class="addon-name">📱 社媒封面图套装</div>
+          <div class="addon-desc">Facebook + Instagram封面图，统一品牌视觉</div>
+        </div>
+        <div class="addon-price">+$200</div>
+      </div>
+      <div class="addon-card" data-addon="hosting" data-price="200">
+        <div class="addon-checkbox"></div>
+        <div class="addon-info">
+          <div class="addon-name">🖥️ 1年托管+域名</div>
+          <div class="addon-desc">含服务器托管、域名续费、SSL证书。次年续费$200</div>
+        </div>
+        <div class="addon-price">+$200/年</div>
+      </div>
+      <div class="addon-card" data-addon="training" data-price="150">
+        <div class="addon-checkbox"></div>
+        <div class="addon-info">
+          <div class="addon-name">📖 后台操作培训</div>
+          <div class="addon-desc">1小时视频/线下培训，教你自主更新菜单和内容</div>
+        </div>
+        <div class="addon-price">+$150</div>
+      </div>
+      <div class="addon-card" data-addon="photo" data-price="200">
+        <div class="addon-checkbox"></div>
+        <div class="addon-info">
+          <div class="addon-name">📸 食品摄影对接</div>
+          <div class="addon-desc">帮你对接本地摄影师，不赚差价，纯服务</div>
+        </div>
+        <div class="addon-price">+$200</div>
+      </div>
+      <div class="addon-card" data-addon="extra" data-price="150">
+        <div class="addon-checkbox"></div>
+        <div class="addon-info">
+          <div class="addon-name">📄 额外页面</div>
+          <div class="addon-desc">每增加一个页面（活动页/团队介绍/媒体报道等）</div>
+        </div>
+        <div class="addon-price">+$150/页</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== CALCULATOR ====== -->
+<section class="section" id="calculator">
+  <div class="container">
+    <div class="section-header">
+      <h2>💰 实时报价计算器</h2>
+      <p class="subtitle">你的选择会自动汇总，最终价格一目了然</p>
+      <div class="section-divider"></div>
+    </div>
+    <div class="calculator">
+      <div class="calc-row">
+        <span class="calc-label">套餐选择</span>
+        <span class="calc-price" id="calc-tier">未选择</span>
+      </div>
+      <div id="calc-addons"></div>
+      <div class="calc-total calc-row">
+        <span class="calc-label">预估总价</span>
+        <span class="calc-price" id="calc-total">$0</span>
+      </div>
+      <div class="calc-note">* 以上价格不含GST。最终报价以实际沟通为准。</div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== PORTFOLIO ====== -->
+<section class="section" style="background:#F5F0E8">
+  <div class="container">
+    <div class="section-header">
+      <h2>案例展示</h2>
+      <p class="subtitle">真实项目，真实效果。看看你的餐厅网站可以是什么样。</p>
+      <div class="section-divider"></div>
+    </div>
+    <div class="portfolio-grid">
+      <div class="portfolio-card">
+        <div class="portfolio-img">Thirty 7even Dining</div>
+        <div class="portfolio-body">
+          <h3>Thirty 7even Dining 🍽️</h3>
+          <p>悉尼 Macquarie Park 亚洲融合菜餐厅。全定制设计，暗暖调品牌风格，含菜单展示、品牌故事、预订系统、中英双语支持。</p>
+          <div class="portfolio-tags">
+            <span class="tag">全定制设计</span>
+            <span class="tag">预订系统</span>
+            <span class="tag">SEO优化</span>
+            <span class="tag">动效交互</span>
+            <span class="tag">中英双语</span>
+          </div>
+          <div class="portfolio-cta">
+            <a href="https://thirty7even.com.au" target="_blank" class="btn btn-primary btn-sm">查看线上网站 ↗</a>
+            <a href="#contact" class="btn btn-outline btn-sm">想要类似效果？</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== PROCESS ====== -->
+<section class="section">
+  <div class="container">
+    <div class="section-header">
+      <h2>合作流程</h2>
+      <p class="subtitle">简单透明，每一步你都知道进展</p>
+      <div class="section-divider"></div>
+    </div>
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:24px;max-width:900px;margin:0 auto">
+      <div style="text-align:center;padding:24px;background:#fff;border-radius:12px;border:1px solid #E8E0D5">
+        <div style="font-size:2.5rem;margin-bottom:8px">📋</div>
+        <h3>1. 需求沟通</h3>
+        <p style="font-size:0.9rem;color:#7A6E5C;margin-top:8px">告诉我你的餐厅风格、菜系、目标客户</p>
+      </div>
+      <div style="text-align:center;padding:24px;background:#fff;border-radius:12px;border:1px solid #E8E0D5">
+        <div style="font-size:2.5rem;margin-bottom:8px">📝</div>
+        <h3>2. 方案报价</h3>
+        <p style="font-size:0.9rem;color:#7A6E5C;margin-top:8px">出详细方案+报价，确认后签简单合同</p>
+      </div>
+      <div style="text-align:center;padding:24px;background:#fff;border-radius:12px;border:1px solid #E8E0D5">
+        <div style="font-size:2.5rem;margin-bottom:8px">🎨</div>
+        <h3>3. 设计开发</h3>
+        <p style="font-size:0.9rem;color:#7A6E5C;margin-top:8px">实时预览链接，随时反馈修改</p>
+      </div>
+      <div style="text-align:center;padding:24px;background:#fff;border-radius:12px;border:1px solid #E8E0D5">
+        <div style="font-size:2.5rem;margin-bottom:8px">🚀</div>
+        <h3>4. 上线交付</h3>
+        <p style="font-size:0.9rem;color:#7A6E5C;margin-top:8px">确认满意后上线，提供操作培训</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ====== CONTACT ====== -->
+<section class="section" style="background:#F5F0E8" id="contact">
+  <div class="container">
+    <div class="section-header">
+      <h2>开始你的餐厅网站</h2>
+      <p class="subtitle">留下信息，我会在24小时内回复。免费出首页预览，不满意不收费。</p>
+      <div class="section-divider"></div>
+    </div>
+    <div class="contact-grid">
+      <div>
+        <form id="contact-form">
+          <div class="form-group">
+            <label>你的名字 *</label>
+            <input type="text" name="name" required placeholder="餐厅老板怎么称呼？">
+          </div>
+          <div class="form-group">
+            <label>餐厅名称 *</label>
+            <input type="text" name="restaurant" required placeholder="你的餐厅叫什么？">
+          </div>
+          <div class="form-group">
+            <label>邮箱或手机 *</label>
+            <input type="text" name="contact" required placeholder="怎么联系你？">
+          </div>
+          <div class="form-group">
+            <label>感兴趣的套餐</label>
+            <select name="tier" id="form-tier">
+              <option value="">先聊聊再定</option>
+              <option value="light">🍜 轻量版 $1,500-$2,500</option>
+              <option value="standard">🍽️ 标准版 $3,000-$5,500</option>
+              <option value="premium">🥂 旗舰版 $6,000-$10,000</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>有什么想说的？</label>
+            <textarea name="message" placeholder="比如：餐厅位置、菜系、有没有现有网站、预算范围…"></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary" style="width:100%">提交 · 免费获取方案</button>
+        </form>
+      </div>
+      <div class="contact-info">
+        <h3>📬 联系方式</h3>
+        <p><span class="ci-icon">📧</span> 邮件联系（首选）<br><small style="color:#7A6E5C">提交表单后我会在24小时内回复</small></p>
+        <p><span class="ci-icon">📍</span> 服务区域<br><small style="color:#7A6E5C">悉尼及周边 · Macquarie Park · Chatswood · Eastwood · Rhodes · Burwood · City</small></p>
+        <p><span class="ci-icon">💬</span> 中文沟通<br><small style="color:#7A6E5C">全程中文对接，零语言障碍</small></p>
+        <p><span class="ci-icon">🆓</span> 免费预览<br><small style="color:#7A6E5C">不确定效果？我先给你的餐厅做一个免费首页预览，觉得好再继续</small></p>
+        <div style="margin-top:20px;padding:16px;background:#fff;border-radius:8px;border:1px solid #E8D5A8">
+          <strong style="color:#C8A052">🔐 保障承诺</strong>
+          <p style="font-size:0.85rem;color:#7A6E5C;margin-top:6px">签简单合同，收50%定金开工，确认满意再付尾款，全程预览链接不给源码，保护你的权益也保护我的作品。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <p>© 2026 — AI-Powered Restaurant Web Design. Made for Australian Hospitality.</p>
+    <p style="margin-top:4px;font-size:0.82rem">Hermes × 高兴 — 为澳洲餐厅打造专属网站</p>
+  </div>
+</footer>
+
+<!-- Toast -->
+<div class="toast" id="toast"></div>
+
+<!-- ====== JS ====== -->
+<script>
+// ---- State ----
+let selectedTier = null;
+let selectedAddons = new Set();
+
+// ---- Tier Prices (use midpoint) ----
+const tierPrices = { light: 2000, standard: 4250, premium: 8000 };
+const tierNames  = { light: '🍜 轻量版', standard: '🍽️ 标准版', premium: '🥂 旗舰版' };
+
+// ---- Add-on Data ----
+const addonData = {};
+document.querySelectorAll('.addon-card').forEach(card => {
+  addonData[card.dataset.addon] = {
+    price: parseInt(card.dataset.price),
+    name: card.querySelector('.addon-name').textContent.trim()
+  };
+});
+
+// ---- Tier Selection ----
+document.querySelectorAll('.select-tier').forEach(btn => {
+  btn.addEventListener('click', function(e) {
+    e.preventDefault();
+    const tier = this.dataset.tier;
+    if (selectedTier === tier) {
+      // Deselect
+      selectedTier = null;
+      document.querySelectorAll('.tier-card').forEach(c => c.classList.remove('selected'));
+    } else {
+      selectedTier = tier;
+      document.querySelectorAll('.tier-card').forEach(c => {
+        c.classList.remove('selected');
+        if (c.dataset.tier === tier) c.classList.add('selected');
+      });
+    }
+    updateCalc();
+    updateButtons();
+    // Sync form
+    document.getElementById('form-tier').value = selectedTier || '';
+  });
+});
+
+// ---- Add-on Toggle ----
+document.querySelectorAll('.addon-card').forEach(card => {
+  card.addEventListener('click', function() {
+    const key = this.dataset.addon;
+    if (this.classList.contains('selected')) {
+      this.classList.remove('selected');
+      selectedAddons.delete(key);
+    } else {
+      this.classList.add('selected');
+      selectedAddons.add(key);
+    }
+    updateCalc();
+  });
+});
+
+// ---- Button Styles ----
+function updateButtons() {
+  document.querySelectorAll('.select-tier').forEach(btn => {
+    const t = btn.dataset.tier;
+    if (selectedTier === t) {
+      btn.textContent = '✓ 已选择';
+      btn.classList.remove('btn-outline');
+      btn.classList.add('btn-primary');
+    } else {
+      btn.textContent = t === 'standard' ? '选择标准版' :
+                        t === 'premium' ? '选择旗舰版' : '选择轻量版';
+      btn.classList.add('btn-outline');
+      btn.classList.remove('btn-primary');
+      if (t === 'standard' && !selectedTier) {
+        btn.classList.remove('btn-outline');
+        btn.classList.add('btn-primary');
+        btn.textContent = '选择标准版';
+      }
+    }
+  });
+  // Ensure standard CTA stays primary when no tier selected
+  if (!selectedTier) {
+    const stdBtn = document.querySelector('.select-tier[data-tier="standard"]');
+    stdBtn.classList.remove('btn-outline');
+  }
+}
+
+// ---- Calculator Update ----
+function updateCalc() {
+  let total = 0;
+  const tierEl = document.getElementById('calc-tier');
+  const addonsEl = document.getElementById('calc-addons');
+  const totalEl = document.getElementById('calc-total');
+
+  if (selectedTier) {
+    const tPrice = tierPrices[selectedTier];
+    total += tPrice;
+    tierEl.textContent = `${tierNames[selectedTier]} — $${tPrice.toLocaleString()}`;
+  } else {
+    tierEl.textContent = '未选择';
+  }
+
+  let html = '';
+  selectedAddons.forEach(key => {
+    const d = addonData[key];
+    html += `<div class="calc-row"><span class="calc-label">${d.name}</span><span class="calc-price">+$${d.price.toLocaleString()}</span></div>`;
+    total += d.price;
+  });
+  addonsEl.innerHTML = html;
+
+  if (total > 0) {
+    totalEl.textContent = `$${total.toLocaleString()}`;
+  } else {
+    totalEl.textContent = '$0';
+  }
+}
+
+// ---- Form Submit ----
+document.getElementById('contact-form').addEventListener('submit', function(e) {
+  e.preventDefault();
+  const formData = new FormData(this);
+  const data = Object.fromEntries(formData.entries());
+
+  // Add selected tier and add-ons
+  data._selectedTier = selectedTier ? tierNames[selectedTier] : '未选择';
+  data._selectedAddons = Array.from(selectedAddons).map(k => addonData[k].name).join(', ') || '无';
+
+  // Build mailto link (no backend needed for this stage)
+  const subject = encodeURIComponent(`网站咨询 - ${data.restaurant}`);
+  const body = encodeURIComponent(
+    `名字：${data.name}\n餐厅：${data.restaurant}\n联系方式：${data.contact}\n套餐：${data._selectedTier}\n附加服务：${data._selectedAddons}\n留言：${data.message}`
+  );
+
+  // Show toast
+  showToast('✅ 已生成邮件！请发送至你的邮箱地址');
+
+  // Open mailto
+  setTimeout(() => {
+    window.location.href = `mailto:your@email.com?subject=${subject}&body=${body}`;
+  }, 500);
+});
+
+// ---- Toast ----
+function showToast(msg) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), 3000);
+}
+
+// ---- Smooth scroll for anchor links ----
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', function(e) {
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+});
+
+// ---- Init ----
+updateButtons();
+updateCalc();
+</script>
+
+</body>
+</html>
