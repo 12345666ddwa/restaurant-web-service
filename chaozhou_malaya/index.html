@@ -1,0 +1,1616 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chaozhou Malaya Bistro Cafe — Aunty's Kitchen · 阿嬷的厨房</title>
+<meta name="description" content="Chaozhou Malaya Bistro Cafe — A mother-daughter Teochew × Malaysian Chinese kitchen in Balwyn North, Melbourne. The Age Critics' Pick 14.5/20. 母女档潮州×马来西亚华人Fusion小馆。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Noto+Serif+SC:wght@400;500;600;700;900&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600&display=swap" rel="stylesheet">
+<style>
+/* ===== RESET & BASE ===== */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+body{
+  font-family:'DM Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  color:#2D2420;
+  background:#FFFBF5;
+  line-height:1.7;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+img{max-width:100%;height:auto;display:block}
+a{text-decoration:none;color:inherit}
+ul{list-style:none}
+
+/* ===== TILE PATTERN ===== */
+.tile-pattern{
+  background-color:#E8F0F2;
+  background-image:
+    repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(43,87,151,0.08) 10px, rgba(43,87,151,0.08) 11px),
+    repeating-linear-gradient(-45deg, transparent, transparent 10px, rgba(43,87,151,0.08) 10px, rgba(43,87,151,0.08) 11px);
+}
+
+/* ===== TYPOGRAPHY ===== */
+h1,h2,h3,h4{font-family:'Playfair Display',Georgia,serif;font-weight:600;line-height:1.2}
+.hand{font-family:'Caveat',cursive}
+.cn-text{font-family:'Noto Serif SC','STSong',serif}
+
+/* ===== UTILITIES ===== */
+.container{max-width:1200px;margin:0 auto;padding:0 2rem}
+.section{padding:5rem 0}
+.section-label{
+  font-family:'DM Sans',sans-serif;
+  font-size:0.78rem;
+  letter-spacing:0.22em;
+  text-transform:uppercase;
+  color:#C0392B;
+  margin-bottom:1rem;
+  font-weight:600;
+  display:block;
+}
+.section-title{
+  font-size:clamp(1.9rem,3.5vw,2.8rem);
+  color:#2D2420;
+  margin-bottom:1.5rem;
+  line-height:1.25;
+}
+
+/* ===== SCROLL REVEAL ===== */
+.reveal{
+  opacity:0;
+  transform:translateY(30px);
+  transition:opacity 0.7s ease,transform 0.7s ease;
+}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-d1{transition-delay:0.12s}
+.reveal-d2{transition-delay:0.24s}
+.reveal-d3{transition-delay:0.36s}
+.reveal-d4{transition-delay:0.48s}
+
+/* ===== BUTTONS ===== */
+.btn{
+  display:inline-block;
+  font-family:'DM Sans',sans-serif;
+  font-weight:600;
+  font-size:0.88rem;
+  letter-spacing:0.05em;
+  padding:0.9rem 2.2rem;
+  border-radius:3px;
+  transition:all 0.35s ease;
+  cursor:pointer;
+  border:none;
+  text-transform:uppercase;
+}
+.btn-red{
+  background:#C0392B;
+  color:#fff;
+}
+.btn-red:hover{
+  background:#A93226;
+  transform:translateY(-2px);
+  box-shadow:0 6px 20px rgba(192,57,43,0.3);
+}
+.btn-outline{
+  border:2px solid #2B5797;
+  color:#2B5797;
+  background:transparent;
+}
+.btn-outline:hover{
+  background:#2B5797;
+  color:#fff;
+  transform:translateY(-2px);
+}
+.btn-gold{
+  background:#D4952A;
+  color:#fff;
+}
+.btn-gold:hover{
+  background:#B87D1E;
+  transform:translateY(-2px);
+  box-shadow:0 6px 20px rgba(212,149,42,0.3);
+}
+
+/* ===== NAV ===== */
+.nav{
+  position:fixed;
+  top:0;left:0;right:0;
+  z-index:1000;
+  background:#2B5797;
+  padding:0.9rem 0;
+  transition:all 0.3s ease;
+}
+.nav.scrolled{
+  background:rgba(43,87,151,0.97);
+  box-shadow:0 2px 20px rgba(0,0,0,0.1);
+  padding:0.6rem 0;
+}
+.nav-inner{
+  max-width:1200px;
+  margin:0 auto;
+  padding:0 2rem;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+.nav-brand{
+  font-family:'Playfair Display',Georgia,serif;
+  font-size:1.25rem;
+  font-weight:700;
+  color:#fff;
+  letter-spacing:0.03em;
+}
+.nav-brand .cn-text{
+  font-size:0.85rem;
+  font-weight:400;
+  opacity:0.85;
+  margin-left:0.5rem;
+}
+.nav-right{
+  display:flex;
+  align-items:center;
+  gap:1.8rem;
+}
+.nav-links{
+  display:flex;
+  gap:1.8rem;
+  align-items:center;
+}
+.nav-links a{
+  font-size:0.82rem;
+  font-weight:500;
+  color:rgba(255,255,255,0.85);
+  transition:color 0.3s;
+  letter-spacing:0.04em;
+  text-transform:uppercase;
+}
+.nav-links a:hover{color:#fff}
+
+/* Lang Toggle */
+.lang-toggle{
+  display:flex;
+  border:1.5px solid rgba(255,255,255,0.5);
+  border-radius:3px;
+  overflow:hidden;
+}
+.lang-btn{
+  background:transparent;
+  border:none;
+  color:rgba(255,255,255,0.65);
+  padding:0.4rem 0.75rem;
+  font-size:0.78rem;
+  font-weight:600;
+  cursor:pointer;
+  transition:all 0.3s;
+  font-family:'DM Sans',sans-serif;
+  letter-spacing:0.03em;
+}
+.lang-btn.active{
+  background:#fff;
+  color:#2B5797;
+}
+.lang-btn:hover:not(.active){
+  color:#fff;
+}
+
+.mobile-toggle{
+  display:none;
+  flex-direction:column;
+  gap:5px;
+  background:none;
+  border:none;
+  cursor:pointer;
+  padding:4px;
+}
+.mobile-toggle span{
+  display:block;
+  width:22px;
+  height:2px;
+  background:#fff;
+  transition:all 0.3s ease;
+  border-radius:2px;
+}
+
+/* ===== HERO ===== */
+.hero{
+  position:relative;
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  overflow:hidden;
+  padding-top:70px;
+}
+.hero-bg{
+  position:absolute;
+  inset:0;
+  z-index:0;
+  background-color:#FFFBF5;
+  background-image:
+    repeating-linear-gradient(45deg, transparent, transparent 18px, rgba(43,87,151,0.06) 18px, rgba(43,87,151,0.06) 19px),
+    repeating-linear-gradient(-45deg, transparent, transparent 18px, rgba(43,87,151,0.06) 18px, rgba(43,87,151,0.06) 19px),
+    radial-gradient(ellipse at 50% 30%, rgba(212,149,42,0.08) 0%, transparent 65%),
+    radial-gradient(ellipse at 80% 70%, rgba(192,57,43,0.05) 0%, transparent 50%);
+}
+.hero-content{
+  position:relative;
+  z-index:2;
+  max-width:780px;
+  padding:0 2rem;
+}
+.hero-tag{
+  display:inline-block;
+  font-family:'DM Sans',sans-serif;
+  font-size:0.72rem;
+  letter-spacing:0.25em;
+  text-transform:uppercase;
+  color:#C0392B;
+  border:1.5px solid rgba(192,57,43,0.35);
+  padding:0.5rem 1.5rem;
+  margin-bottom:2rem;
+}
+.hero-hand{
+  font-family:'Caveat',cursive;
+  font-size:clamp(2.8rem,5.5vw,4.2rem);
+  color:#C0392B;
+  line-height:1;
+  margin-bottom:0.5rem;
+  font-weight:600;
+}
+.hero-cn{
+  font-family:'Noto Serif SC',serif;
+  font-size:clamp(2rem,4vw,3rem);
+  color:#2D2420;
+  font-weight:700;
+  margin-bottom:0.5rem;
+  line-height:1.3;
+}
+.hero-sub{
+  font-family:'Playfair Display',serif;
+  font-size:clamp(1rem,1.6vw,1.2rem);
+  color:#2B5797;
+  font-style:italic;
+  margin-bottom:0.75rem;
+  line-height:1.5;
+}
+.hero-desc{
+  font-size:1.05rem;
+  color:#5C4A3A;
+  max-width:520px;
+  margin:0 auto 2.5rem;
+  line-height:1.75;
+  font-weight:400;
+}
+.hero-actions{
+  display:flex;
+  gap:1rem;
+  justify-content:center;
+  flex-wrap:wrap;
+}
+.hero-scroll{
+  position:absolute;
+  bottom:2.5rem;
+  left:50%;
+  transform:translateX(-50%);
+  z-index:2;
+  animation:bob 2s ease-in-out infinite;
+}
+.hero-scroll span{
+  display:block;
+  width:1px;
+  height:36px;
+  background:rgba(43,87,151,0.4);
+  margin:0 auto 0.5rem;
+}
+.hero-scroll small{
+  font-size:0.65rem;
+  letter-spacing:0.2em;
+  text-transform:uppercase;
+  color:rgba(43,87,151,0.5);
+}
+@keyframes bob{
+  0%,100%{transform:translateX(-50%) translateY(0)}
+  50%{transform:translateX(-50%) translateY(8px)}
+}
+
+/* ===== TILE DIVIDER ===== */
+.tile-divider{
+  height:8px;
+  background-color:#2B5797;
+  background-image:
+    repeating-linear-gradient(45deg, transparent, transparent 6px, rgba(255,255,255,0.15) 6px, rgba(255,255,255,0.15) 7px),
+    repeating-linear-gradient(-45deg, transparent, transparent 6px, rgba(255,255,255,0.15) 6px, rgba(255,255,255,0.15) 7px);
+}
+
+/* ===== STORY SECTION ===== */
+.story-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:4rem;
+  align-items:center;
+}
+.story-photo-wrap{
+  position:relative;
+  border:4px solid #2B5797;
+  padding:10px;
+  background:#fff;
+}
+.story-photo-wrap::before{
+  content:'';
+  position:absolute;
+  inset:-16px;
+  border:2px dashed rgba(192,57,43,0.3);
+  pointer-events:none;
+  z-index:-1;
+}
+.story-photo{
+  width:100%;
+  aspect-ratio:4/5;
+  object-fit:cover;
+  display:block;
+}
+.story-badge{
+  position:absolute;
+  bottom:24px;
+  right:-20px;
+  background:#C0392B;
+  color:#fff;
+  padding:0.8rem 1.4rem;
+  text-align:center;
+  box-shadow:0 4px 15px rgba(192,57,43,0.3);
+}
+.story-badge .stars{font-size:1rem;margin-bottom:0.15rem;letter-spacing:0.1em}
+.story-badge .score{font-family:'Playfair Display',serif;font-size:1.4rem;font-weight:800}
+.story-badge .source{font-size:0.65rem;text-transform:uppercase;letter-spacing:0.12em;opacity:0.85}
+
+.story-text .hand-title{
+  font-family:'Caveat',cursive;
+  font-size:2.2rem;
+  color:#C0392B;
+  line-height:1.1;
+  margin-bottom:1rem;
+}
+.story-text p{
+  font-size:1.02rem;
+  color:#5C4A3A;
+  margin-bottom:1.2rem;
+  line-height:1.85;
+}
+.story-quote{
+  border-left:4px solid #C0392B;
+  padding:0.8rem 1.5rem;
+  margin:2rem 0;
+  background:rgba(192,57,43,0.04);
+  font-size:1.1rem;
+  font-style:italic;
+  color:#2D2420;
+  line-height:1.65;
+}
+.story-quote small{
+  display:block;
+  font-style:normal;
+  font-size:0.85rem;
+  color:#8B7355;
+  margin-top:0.6rem;
+  font-weight:500;
+}
+
+/* ===== SIGNATURE DISHES - Magazine Asymmetric ===== */
+.sig-header{
+  text-align:center;
+  margin-bottom:4rem;
+}
+.sig-header .hand-title{
+  font-family:'Caveat',cursive;
+  font-size:2.8rem;
+  color:#C0392B;
+  line-height:1.1;
+}
+.sig-row{
+  display:grid;
+  grid-template-columns:1.2fr 0.8fr;
+  gap:3rem;
+  align-items:center;
+  margin-bottom:4rem;
+}
+.sig-row.reverse{
+  grid-template-columns:0.8fr 1.2fr;
+}
+.sig-img-wrap{
+  position:relative;
+  overflow:hidden;
+}
+.sig-img-wrap img{
+  width:100%;
+  aspect-ratio:4/3;
+  object-fit:cover;
+  transition:transform 0.5s ease;
+}
+.sig-img-wrap:hover img{transform:scale(1.04)}
+.sig-img-wrap .tile-corner{
+  position:absolute;
+  top:-12px;
+  left:-12px;
+  width:60px;
+  height:60px;
+  background:#D4952A;
+  z-index:1;
+  opacity:0.75;
+}
+.sig-img-wrap .tile-corner::after{
+  content:'';
+  position:absolute;
+  inset:4px;
+  background:
+    repeating-linear-gradient(45deg, transparent, transparent 4px, rgba(255,255,255,0.2) 4px, rgba(255,255,255,0.2) 5px);
+}
+.sig-info .dish-num{
+  font-family:'Playfair Display',serif;
+  font-size:4rem;
+  color:rgba(43,87,151,0.15);
+  font-weight:900;
+  line-height:1;
+  margin-bottom:-0.5rem;
+}
+.sig-info h3{
+  font-family:'Playfair Display',serif;
+  font-size:1.8rem;
+  color:#2D2420;
+  margin-bottom:0.3rem;
+}
+.sig-info .cn-dish{
+  font-family:'Noto Serif SC',serif;
+  font-size:1.3rem;
+  color:#C0392B;
+  font-weight:600;
+  margin-bottom:1rem;
+}
+.sig-info p{
+  font-size:0.95rem;
+  color:#5C4A3A;
+  line-height:1.7;
+  margin-bottom:1rem;
+}
+.sig-info .price-tag{
+  display:inline-block;
+  background:#C0392B;
+  color:#fff;
+  padding:0.35rem 1rem;
+  font-weight:700;
+  font-size:0.9rem;
+}
+
+/* ===== MENU SECTION ===== */
+.menu-tabs{
+  display:flex;
+  justify-content:center;
+  gap:0.5rem;
+  margin-bottom:3rem;
+  flex-wrap:wrap;
+}
+.menu-tab{
+  font-family:'DM Sans',sans-serif;
+  font-size:0.82rem;
+  font-weight:600;
+  padding:0.65rem 1.4rem;
+  border:2px solid #2B5797;
+  background:transparent;
+  color:#2B5797;
+  cursor:pointer;
+  transition:all 0.3s ease;
+  letter-spacing:0.04em;
+  text-transform:uppercase;
+}
+.menu-tab:hover{
+  background:rgba(43,87,151,0.08);
+}
+.menu-tab.active{
+  background:#2B5797;
+  border-color:#2B5797;
+  color:#fff;
+}
+.menu-content{display:none}
+.menu-content.active{display:block}
+.menu-list{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(320px,1fr));
+  gap:1.25rem;
+}
+.menu-item{
+  background:#fff;
+  padding:1.5rem;
+  border-left:4px solid #2B5797;
+  transition:all 0.3s ease;
+  box-shadow:0 1px 8px rgba(0,0,0,0.04);
+}
+.menu-item:hover{
+  border-left-color:#C0392B;
+  box-shadow:0 3px 20px rgba(0,0,0,0.08);
+  transform:translateX(4px);
+}
+.menu-item-top{
+  display:flex;
+  justify-content:space-between;
+  align-items:baseline;
+  margin-bottom:0.3rem;
+}
+.menu-item-top h4{
+  font-family:'Playfair Display',serif;
+  font-size:1.05rem;
+  color:#2D2420;
+  font-weight:600;
+}
+.menu-item .price{
+  font-family:'DM Sans',sans-serif;
+  font-weight:700;
+  color:#C0392B;
+  font-size:1rem;
+}
+.menu-item .cn-dish{
+  font-family:'Noto Serif SC',serif;
+  font-size:0.9rem;
+  color:#2B5797;
+  font-weight:500;
+  margin-bottom:0.5rem;
+}
+.menu-item .desc{
+  font-size:0.85rem;
+  color:#5C4A3A;
+  line-height:1.55;
+}
+.menu-item .tag{
+  display:inline-block;
+  font-size:0.68rem;
+  background:#D4952A;
+  color:#fff;
+  padding:0.2rem 0.6rem;
+  margin-top:0.5rem;
+  font-weight:600;
+  letter-spacing:0.05em;
+  text-transform:uppercase;
+}
+
+/* ===== REVIEWS ===== */
+.reviews-grid{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:1.5rem;
+}
+.review-card{
+  background:#fff;
+  padding:2rem;
+  border-top:4px solid #C0392B;
+  box-shadow:0 2px 15px rgba(0,0,0,0.05);
+  transition:all 0.35s ease;
+}
+.review-card:hover{
+  transform:translateY(-5px);
+  box-shadow:0 8px 30px rgba(0,0,0,0.1);
+}
+.review-stars{color:#D4952A;font-size:0.95rem;margin-bottom:1rem;letter-spacing:0.15em}
+.review-text{
+  font-size:0.95rem;
+  color:#5C4A3A;
+  line-height:1.7;
+  margin-bottom:1.5rem;
+}
+.review-author{
+  display:flex;
+  align-items:center;
+  gap:0.75rem;
+}
+.review-avatar{
+  width:40px;height:40px;
+  background:#2B5797;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-weight:700;
+  font-size:0.85rem;
+  color:#fff;
+  font-family:'Playfair Display',serif;
+}
+.review-author-info strong{
+  display:block;
+  font-size:0.88rem;
+  color:#2D2420;
+}
+.review-author-info span{
+  font-size:0.75rem;
+  color:#8B7355;
+}
+.review-source{
+  display:inline-block;
+  font-size:0.65rem;
+  color:#2B5797;
+  text-transform:uppercase;
+  letter-spacing:0.1em;
+  margin-top:0.6rem;
+  font-weight:600;
+}
+
+/* ===== VISIT SECTION ===== */
+.visit-section{
+  background:#E8F0F2;
+  background-image:
+    repeating-linear-gradient(45deg, transparent, transparent 10px, rgba(43,87,151,0.04) 10px, rgba(43,87,151,0.04) 11px);
+}
+.visit-grid{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:3rem;
+  align-items:start;
+}
+.visit-photo{
+  width:100%;
+  aspect-ratio:4/3;
+  object-fit:cover;
+  border:6px solid #fff;
+  box-shadow:0 4px 25px rgba(0,0,0,0.1);
+}
+.visit-info h3{
+  font-size:1.8rem;
+  color:#2D2420;
+  margin-bottom:2rem;
+}
+.visit-item{
+  display:flex;
+  gap:1rem;
+  margin-bottom:1.5rem;
+  align-items:flex-start;
+}
+.visit-icon{
+  width:44px;height:44px;
+  background:#2B5797;
+  color:#fff;
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-size:1.2rem;
+  flex-shrink:0;
+}
+.visit-item-text strong{
+  display:block;
+  font-size:0.82rem;
+  color:#2D2420;
+  margin-bottom:0.2rem;
+  letter-spacing:0.04em;
+  text-transform:uppercase;
+}
+.visit-item-text span,.visit-item-text a{
+  font-size:0.95rem;
+  color:#5C4A3A;
+  line-height:1.6;
+}
+.visit-item-text a{color:#C0392B;font-weight:600}
+.hours-grid{
+  display:grid;
+  grid-template-columns:auto 1fr;
+  gap:0.4rem 1.5rem;
+  font-size:0.88rem;
+  margin-top:0.3rem;
+}
+.hours-grid .day{color:#8B7355}
+.hours-grid .time{color:#2D2420;font-weight:600}
+.hours-grid .closed{color:#C0392B;font-weight:600}
+
+/* ===== GALLERY STRIP ===== */
+.gallery-strip{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:0.75rem;
+}
+.gallery-strip img{
+  width:100%;
+  aspect-ratio:1/1;
+  object-fit:cover;
+  border:3px solid #fff;
+  box-shadow:0 2px 10px rgba(0,0,0,0.06);
+  transition:transform 0.35s ease;
+}
+.gallery-strip img:hover{transform:scale(1.05)}
+
+/* ===== FOOTER ===== */
+.footer{
+  background:#2B5797;
+  color:rgba(255,255,255,0.8);
+  padding:4rem 0 2rem;
+  text-align:center;
+}
+.footer-brand{
+  font-family:'Playfair Display',serif;
+  font-size:1.5rem;
+  color:#fff;
+  margin-bottom:0.5rem;
+}
+.footer-tagline{
+  font-size:0.9rem;
+  color:rgba(255,255,255,0.6);
+  margin-bottom:2rem;
+}
+.footer-hand{
+  font-family:'Caveat',cursive;
+  font-size:1.6rem;
+  color:#D4952A;
+  margin-bottom:1.5rem;
+}
+.footer-social{
+  display:flex;
+  justify-content:center;
+  gap:1.5rem;
+  margin-bottom:2rem;
+}
+.footer-social a{
+  width:42px;height:42px;
+  border-radius:50%;
+  border:1.5px solid rgba(255,255,255,0.3);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:rgba(255,255,255,0.7);
+  transition:all 0.3s ease;
+  font-size:1rem;
+}
+.footer-social a:hover{
+  background:#C0392B;
+  border-color:#C0392B;
+  color:#fff;
+}
+.footer-divider{
+  width:50px;
+  height:2px;
+  background:rgba(255,255,255,0.25);
+  margin:0 auto 2rem;
+}
+.footer-credit{
+  font-size:0.8rem;
+  color:rgba(255,255,255,0.5);
+}
+.footer-credit strong{color:#D4952A;font-weight:500}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:900px){
+  .sig-row,.sig-row.reverse{
+    grid-template-columns:1fr;
+    gap:1.5rem;
+    margin-bottom:3rem;
+  }
+  .sig-row.reverse .sig-img-wrap{order:-1}
+}
+@media(max-width:768px){
+  .nav-right{gap:1rem}
+  .nav-links{
+    position:fixed;
+    top:0;right:-100%;
+    width:80%;max-width:300px;
+    height:100vh;
+    background:#2B5797;
+    flex-direction:column;
+    justify-content:center;
+    padding:2rem;
+    transition:right 0.4s ease;
+    gap:1.5rem;
+    box-shadow:-5px 0 30px rgba(0,0,0,0.2);
+  }
+  .nav-links.open{right:0}
+  .mobile-toggle{display:flex;z-index:1001}
+  .mobile-toggle.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+  .mobile-toggle.open span:nth-child(2){opacity:0}
+  .mobile-toggle.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+
+  .story-grid{grid-template-columns:1fr;gap:2.5rem}
+  .story-badge{right:10px;bottom:10px}
+  .story-photo-wrap{border-width:3px;padding:6px}
+
+  .reviews-grid{grid-template-columns:1fr}
+  .visit-grid{grid-template-columns:1fr;gap:2rem}
+  .gallery-strip{grid-template-columns:repeat(2,1fr)}
+  .menu-list{grid-template-columns:1fr}
+  .section{padding:3.5rem 0}
+}
+@media(max-width:480px){
+  .container{padding:0 1.25rem}
+  .hero-hand{font-size:2.2rem}
+  .hero-cn{font-size:1.5rem}
+  .hero-sub{font-size:0.95rem}
+  .section-title{font-size:1.6rem}
+  .btn{padding:0.8rem 1.4rem;font-size:0.78rem}
+  .menu-tabs{gap:0.35rem}
+  .menu-tab{font-size:0.7rem;padding:0.5rem 0.9rem}
+  .gallery-strip{grid-template-columns:repeat(2,1fr)}
+}
+</style>
+</head>
+<body>
+
+<!-- ===== NAV ===== -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="#" class="nav-brand">
+      Chaozhou Malaya<span class="cn-text"> · 潮州马来</span>
+    </a>
+    <div class="nav-right">
+      <div class="nav-links" id="navLinks">
+        <a href="#story" data-key="navStory">Our Story</a>
+        <a href="#dishes" data-key="navDishes">Signature</a>
+        <a href="#menu" data-key="navMenu">Menu</a>
+        <a href="#reviews" data-key="navReviews">Reviews</a>
+        <a href="#visit" data-key="navVisit">Visit</a>
+      </div>
+      <div class="lang-toggle" id="langToggle">
+        <button class="lang-btn active" data-lang="en">EN</button>
+        <button class="lang-btn" data-lang="zh">中文</button>
+      </div>
+      <button class="mobile-toggle" id="mobileToggle" aria-label="Menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- ===== HERO ===== -->
+<section class="hero" id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <span class="hero-tag" data-key="heroTag">Melbourne · Balwyn North</span>
+    <div class="hero-hand" data-key="heroHand">Aunty Ruth's Kitchen</div>
+    <div class="hero-cn" data-key="heroCn">阿嬷的厨房</div>
+    <div class="hero-sub" data-key="heroSub">"A One-Aunty Show of Southern Chinese Homestyle Hits" — The Age</div>
+    <p class="hero-desc" data-key="heroDesc">
+      A tiny 30-seat hideaway tucked inside a quiet shopping arcade — where one mother's Chaozhou recipes meet the bold soul of Malaysian home cooking.
+    </p>
+    <div class="hero-actions">
+      <a href="#menu" class="btn btn-red" data-key="heroBtn1">Explore Our Menu</a>
+      <a href="tel:+61390788168" class="btn btn-outline" data-key="heroBtn2">Call to Book</a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <span></span>
+    <small data-key="scroll">Scroll</small>
+  </div>
+</section>
+
+<div class="tile-divider"></div>
+
+<!-- ===== STORY ===== -->
+<section class="section" id="story">
+  <div class="container">
+    <div class="story-grid">
+      <div class="story-photo-wrap reveal">
+        <img class="story-photo" src="photos_web/rg_interior_design.jpg" alt="Aunty Ruth in her kitchen" loading="lazy">
+        <div class="story-badge">
+          <div class="stars">★★★★½</div>
+          <div class="score">14.5<span style="font-size:0.65em">/20</span></div>
+          <div class="source">The Age · Critics' Pick</div>
+        </div>
+      </div>
+      <div class="story-text reveal reveal-d1">
+        <span class="section-label" data-key="storyLabel">Our Story</span>
+        <div class="hand-title" data-key="storyTitle">A Mother-Daughter Kitchen</div>
+        <p data-key="storyP1">
+          In a hidden arcade off Doncaster Road, <strong>Aunty Ruth</strong> runs the show — a one-woman kitchen powered by decades of Chaozhou home cooking and a deep love for Malaysian flavours. Her daughter works the front of house, greeting every guest like family.
+        </p>
+        <p data-key="storyP2">
+          There are no shortcuts here. Every oyster omelette is fried to order. Every pot of Bak Kut Teh simmers for hours. The duck is braised the way Ruth's mother taught her in Shantou — slow, patient, and seasoned by instinct.
+        </p>
+        <blockquote class="story-quote">
+          <span data-key="storyQuote">"I don't cook to impress. I cook the way I would for my own children — with love, and a little bit of chilli."</span>
+          <small>— Aunty Ruth, Chef &amp; Owner</small>
+        </blockquote>
+        <p data-key="storyP3">
+          With just <strong>30 seats</strong> and two pairs of hands, Chaozhou Malaya is as intimate as it gets. Named a <strong style="color:#C0392B">Critics' Pick</strong> by The Age and loved by locals who know to book ahead — this is the kind of place Melbourne does best.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SIGNATURE DISHES ===== -->
+<section class="section" id="dishes" style="background:#fff;">
+  <div class="container">
+    <div class="sig-header reveal">
+      <span class="section-label" data-key="sigLabel">Signature Dishes</span>
+      <div class="hand-title" data-key="sigTitle">The Four That Started It All</div>
+      <p style="color:#8B7355;font-size:0.95rem;max-width:500px;margin:0.5rem auto 0" data-key="sigSub">Every great kitchen has its anchors. These are ours.</p>
+    </div>
+
+    <!-- Dish 1: 蚝烙 -->
+    <div class="sig-row reveal">
+      <div class="sig-img-wrap">
+        <div class="tile-corner"></div>
+        <img src="photos_web/c2dc-Chaozhou-Malaya-Bistro-Cafe-food-1.jpg" alt="Oyster Omelette" loading="lazy">
+      </div>
+      <div class="sig-info">
+        <div class="dish-num">01</div>
+        <h3 data-key="d1name">Oyster Omelette</h3>
+        <div class="cn-dish">蚝烙</div>
+        <p data-key="d1desc">Crispy-edged, gooey-centred — the Chaozhou classic done Ruth's way, with plump oysters and a secret starch blend passed down from Shantou.</p>
+        <span class="price-tag">$24</span>
+      </div>
+    </div>
+
+    <!-- Dish 2: 卤鸭 (reverse) -->
+    <div class="sig-row reverse reveal reveal-d1">
+      <div class="sig-info" style="text-align:right">
+        <div class="dish-num" style="margin-left:auto">02</div>
+        <h3 data-key="d2name">Braised Duck</h3>
+        <div class="cn-dish">卤鸭</div>
+        <p data-key="d2desc">Slow-braised in a master stock passed down from Shantou — tender, aromatic, and sliced thin over steamed rice. The dish that regulars drive across town for.</p>
+        <span class="price-tag">$28</span>
+      </div>
+      <div class="sig-img-wrap">
+        <div class="tile-corner" style="left:auto;right:-12px"></div>
+        <img src="photos_web/c1d8-Chaozhou-Malaya-Bistro-Cafe-food-2.jpg" alt="Braised Duck" loading="lazy">
+      </div>
+    </div>
+
+    <!-- Dish 3: 炒粿条 -->
+    <div class="sig-row reveal reveal-d2">
+      <div class="sig-img-wrap">
+        <div class="tile-corner"></div>
+        <img src="photos_web/c127-Restaurant-Chaozhou-Malaya-Bistro-Cafe-dishes-2.jpg" alt="Char Kuay Teow" loading="lazy">
+      </div>
+      <div class="sig-info">
+        <div class="dish-num">03</div>
+        <h3 data-key="d3name">Char Kuay Teow</h3>
+        <div class="cn-dish">炒粿条</div>
+        <p data-key="d3desc">Wok hei in every strand — flat rice noodles kissed by flame, with lap cheong, egg, cockles, and a proper sambal kick that hits all the right notes.</p>
+        <span class="price-tag">$22</span>
+      </div>
+    </div>
+
+    <!-- Dish 4: 肉骨茶 (reverse) -->
+    <div class="sig-row reverse reveal reveal-d3">
+      <div class="sig-info" style="text-align:right">
+        <div class="dish-num" style="margin-left:auto">04</div>
+        <h3 data-key="d4name">Bak Kut Teh</h3>
+        <div class="cn-dish">肉骨茶</div>
+        <p data-key="d4desc">Fragrant pork rib soup, slow-simmered with garlic and medicinal herbs. Served with youtiao and a side of chilli soy — the taste of a Klang morning.</p>
+        <span class="price-tag">$22</span>
+      </div>
+      <div class="sig-img-wrap">
+        <div class="tile-corner" style="left:auto;right:-12px"></div>
+        <img src="photos_web/c047-Chaozhou-Malaya-Bistro-Cafe-Balwyn-North-dishes-2.jpg" alt="Bak Kut Teh" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== MENU ===== -->
+<section class="section tile-pattern" id="menu">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:3rem">
+      <span class="section-label" data-key="menuLabel">Our Menu</span>
+      <h2 class="section-title" data-key="menuTitle">What's Cooking Today</h2>
+      <p style="color:#5C4A3A;font-size:0.95rem;max-width:500px;margin:0 auto" data-key="menuSub">$20–40 per person · BYO welcome · Off-menu dishes available on request</p>
+    </div>
+
+    <div class="menu-tabs reveal">
+      <button class="menu-tab active" data-tab="soup" data-key="tabSoup">Soup</button>
+      <button class="menu-tab" data-tab="starters" data-key="tabStarters">Starters</button>
+      <button class="menu-tab" data-tab="noodles" data-key="tabNoodles">Noodles</button>
+      <button class="menu-tab" data-tab="chaozhou" data-key="tabChaozhou">Chaozhou</button>
+      <button class="menu-tab" data-tab="chef" data-key="tabChef">Chef's Picks</button>
+      <button class="menu-tab" data-tab="dessert" data-key="tabDessert">Dessert</button>
+    </div>
+
+    <!-- Soup -->
+    <div class="menu-content active" id="tab-soup">
+      <div class="menu-list">
+        <div class="menu-item">
+          <div class="menu-item-top"><h4>Bak Kut Teh</h4><span class="price">$22</span></div>
+          <div class="cn-dish">肉骨茶</div>
+          <p class="desc" data-key="m1desc">Pork ribs simmered with garlic, star anise &amp; medicinal herbs. Served with youtiao and steamed rice.</p>
+          <span class="tag" data-key="sig">Signature</span>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-top"><h4>Fish Maw Soup</h4><span class="price">$18</span></div>
+          <div class="cn-dish">鱼鳔汤</div>
+          <p class="desc" data-key="m2desc">Delicate fish maw with crab meat in a clear, peppery broth — a Chaozhou banquet staple.</p>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-top"><h4>Laksa Lemak</h4><span class="price">$19</span></div>
+          <div class="cn-dish">叻沙</div>
+          <p class="desc" data-key="m3desc">Rich coconut curry soup with prawns, tofu puffs, egg &amp; rice noodles. Ruth's Malaysian favourite.</p>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-top"><h4>Wonton Soup</h4><span class="price">$16</span></div>
+          <div class="cn-dish">云吞汤</div>
+          <p class="desc" data-key="m4desc">Hand-wrapped pork &amp; prawn wontons in a light, clear chicken broth with leafy greens.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Starters -->
+    <div class="menu-content" id="tab-starters">
+      <div class="menu-list">
+        <div class="menu-item">
+          <div class="menu-item-top"><h4>Oyster Omelette</h4><span class="price">$24</span></div>
+          <div class="cn-dish">蚝烙</div>
+          <p class="desc" data-key="m5desc">The one that started it all — crispy, gooey, loaded with fresh oysters. Chaozhou street-food royalty.</p>
+          <span class="tag" data-key="sig">Signature</span>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-top"><h4>Ngoh Hiang</h4><span class="price">$16</span></div>
+          <div class="cn-dish">五香</div>
+          <p class="desc" data-key="m6desc">Five-spice pork &amp; prawn rolls wrapped in beancurd skin, deep-fried golden. Sweet chilli dip.</p>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-top"><h4>Roti Canai</h4><span class="price">$12</span></div>
+          <div class="cn-dish">印度煎饼</div>
+          <p class="desc" data-key="m7desc">Flaky, buttery flatbread pulled by hand — served with dhal curry and a dollop of sambal.</p>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-top"><h4>Spring Rolls</h4><span class="price">$14</span></div>
+          <div class="cn-dish">春卷</div>
+          <p class="desc" data-key="m8desc">Crispy Chaozhou-style spring rolls stuffed with jicama, carrot, mushroom &amp; minced pork.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Noodles -->
+    <div class="menu-content" id="tab-noodles">
+      <div class="menu-list">
+        <div class="menu-item">
+          <div class="menu-item-top"><h4>Char Kuay Teow</h4><span class="price">$22</span></div>
+          <div class="cn-dish">炒粿条</div>
+          <p class="desc" data-key="m9desc">Wok-blistered flat noodles with lap cheong, prawns, cockles &amp; bean sprouts. Serious wok hei.</p>
+          <span class="tag" data-key="sig">Signature</span>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-top"><h4>Hokkien Mee</h4><span class="price">$23</span></div>
+          <div class="cn-dish">福建面</div>
+          <p class="desc" data-key="m10desc">Thick yellow noodles braised in dark soy with pork, squid &amp; cabbage — KL-style, rich and smoky.</p>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-top"><h4>Chaozhou Rice Noodles</h4><span class="price">$18</span></div>
+          <div class="cn-dish">潮州粿条汤</div>
+          <p class="desc" data-key="m11desc">Delicate flat rice noodles in a clear pork bone broth with minced pork, fish balls &amp; fried garlic.</p>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-top"><h4>Mee Goreng</h4><span class="price">$19</span></div>
+          <div class="cn-dish">马来炒面</div>
+          <p class="desc" data-key="m12desc">Spicy fried egg noodles with tofu, potato &amp; a squeeze of calamansi lime — mamak stall energy.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Chaozhou Specialties -->
+    <div class="menu-content" id="tab-chaozhou">
+      <div class="menu-list">
+        <div class="menu-item">
+          <div class="menu-item-top"><h4>Braised Duck</h4><span class="price">$28</span></div>
+          <div class="cn-dish">卤鸭</div>
+          <p class="desc" data-key="m13desc">Whole leg, braised for hours in Shantou-style master stock with five-spice, soy &amp; rock sugar. Served with braised eggs &amp; tofu.</p>
+          <span class="tag" data-key="sig">Signature</span>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-top"><h4>Steamed Pomfret</h4><span class="price">$32</span></div>
+          <div class="cn-dish">潮式蒸鲳鱼</div>
+          <p class="desc" data-key="m14desc">Whole pomfret steamed Cantonese-style with ginger, spring onion &amp; soy — clean, sweet, and delicate. Subject to availability.</p>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-top"><h4>Kong Bak Pau</h4><span class="price">$20</span></div>
+          <div class="cn-dish">扣肉包</div>
+          <p class="desc" data-key="m15desc">Twice-braised pork belly, melt-in-your-mouth tender, sandwiched in a fluffy steamed bun with coriander.</p>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-top"><h4>Yam Ring</h4><span class="price">$26</span></div>
+          <div class="cn-dish">佛钵飘香</div>
+          <p class="desc" data-key="m16desc">Crispy taro basket filled with stir-fried chicken, cashews &amp; vegetables — a banquet showstopper. 48h pre-order.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Chef's Picks -->
+    <div class="menu-content" id="tab-chef">
+      <div class="menu-list">
+        <div class="menu-item">
+          <div class="menu-item-top"><h4>Nyonya Curry Chicken</h4><span class="price">$26</span></div>
+          <div class="cn-dish">娘惹咖喱鸡</div>
+          <p class="desc" data-key="m17desc">Aunty Ruth's take on the Peranakan classic — rich coconut gravy, tender chicken, potatoes &amp; kaffir lime.</p>
+          <span class="tag">Chef's Pick</span>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-top"><h4>Sambal Prawns</h4><span class="price">$30</span></div>
+          <div class="cn-dish">叁峇虾</div>
+          <p class="desc" data-key="m18desc">Jumbo tiger prawns wok-tossed in Ruth's house-made sambal — fiery, tangy, and deeply savoury.</p>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-top"><h4>Assam Fish</h4><span class="price">$28</span></div>
+          <div class="cn-dish">亚参鱼</div>
+          <p class="desc" data-key="m19desc">Tamarind-braised fish with okra &amp; tomato in a tangy-spicy gravy — the taste of a Penang home kitchen.</p>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-top"><h4>Secret Off-Menu</h4><span class="price">Ask us</span></div>
+          <div class="cn-dish">隐藏菜品</div>
+          <p class="desc" data-key="m20desc">Ruth sometimes cooks dishes that never make the printed menu. Ask when you book — you might get lucky.</p>
+          <span class="tag" style="background:#2B5797">Pre-order Only</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Dessert -->
+    <div class="menu-content" id="tab-dessert">
+      <div class="menu-list">
+        <div class="menu-item">
+          <div class="menu-item-top"><h4>Orh Nee</h4><span class="price">$14</span></div>
+          <div class="cn-dish">潮州芋泥</div>
+          <p class="desc" data-key="m21desc">Silky-smooth Chaozhou yam paste with gingko nuts &amp; a drizzle of coconut cream — warm and comforting.</p>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-top"><h4>Sago Gula Melaka</h4><span class="price">$12</span></div>
+          <div class="cn-dish">椰糖西米露</div>
+          <p class="desc" data-key="m22desc">Chilled sago pearls with palm sugar syrup &amp; coconut milk — the simplest Malaysian dessert, done right.</p>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-top"><h4>Cendol</h4><span class="price">$13</span></div>
+          <div class="cn-dish">珍多冰</div>
+          <p class="desc" data-key="m23desc">Green pandan jelly ribbons with shaved ice, red beans &amp; gula melaka — a bowl of Malaysian childhood.</p>
+        </div>
+        <div class="menu-item">
+          <div class="menu-item-top"><h4>Kueh Platter</h4><span class="price">$16</span></div>
+          <div class="cn-dish">粿拼盘</div>
+          <p class="desc" data-key="m24desc">A rotating selection of house-made Nyonya kuih — layers of colour, coconut &amp; nostalgia on a plate.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="tile-divider"></div>
+
+<!-- ===== REVIEWS ===== -->
+<section class="section" id="reviews" style="background:#fff;">
+  <div class="container">
+    <div style="text-align:center;margin-bottom:3rem">
+      <span class="section-label" data-key="revLabel">What People Say</span>
+      <h2 class="section-title" data-key="revTitle">Word of Mouth</h2>
+      <p style="color:#8B7355;font-size:0.95rem;max-width:520px;margin:0 auto" data-key="revSub">No PR agency. No marketing budget. Just people who ate here and had to tell someone.</p>
+    </div>
+    <div class="reviews-grid">
+      <div class="review-card reveal">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text" data-key="r1text">
+          "Mind-blowing. The precision in Ruth's oyster omelette — that crisp exterior giving way to something almost custardy inside — is technique you'd expect at a fine-diner, not a 30-seat arcade hideaway. This is the real deal."
+        </p>
+        <div class="review-author">
+          <div class="review-avatar">LH</div>
+          <div class="review-author-info">
+            <strong>Lennox Hastie</strong>
+            <span>Chef-Owner, Firedoor (Sydney)</span>
+          </div>
+        </div>
+        <span class="review-source">Google Review</span>
+      </div>
+      <div class="review-card reveal reveal-d1">
+        <div class="review-stars">★★★★½</div>
+        <p class="review-text" data-key="r2text">
+          "A mother-daughter duo delivering some of Melbourne's most heartfelt Chaozhou-Malaysian cooking. The braised duck alone is worth the drive to Balwyn North. Critics' Pick — and deservedly so."
+        </p>
+        <div class="review-author">
+          <div class="review-avatar">TA</div>
+          <div class="review-author-info">
+            <strong>The Age Good Food</strong>
+            <span>14.5/20 · Critics' Pick</span>
+          </div>
+        </div>
+        <span class="review-source">The Age</span>
+      </div>
+      <div class="review-card reveal reveal-d2">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text" data-key="r3text">
+          "Ruth's Bak Kut Teh tastes like my grandmother's kitchen in Klang. The balance of herbs, the fall-apart ribs, the silence that falls over the table when it arrives — that's when you know the food is speaking."
+        </p>
+        <div class="review-author">
+          <div class="review-avatar">EK</div>
+          <div class="review-author-info">
+            <strong>Esca Khoo</strong>
+            <span>Food Writer &amp; Malaysian Food Guide</span>
+          </div>
+        </div>
+        <span class="review-source">Google Review</span>
+      </div>
+      <div class="review-card reveal reveal-d3">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text" data-key="r4text">
+          "Reminds me of childhood. My mum used to make char kuay teow exactly like this — wok hei so strong you can smell it from the car park. I've brought my whole family back three times now."
+        </p>
+        <div class="review-author">
+          <div class="review-avatar">JT</div>
+          <div class="review-author-info">
+            <strong>Jason Tan</strong>
+            <span>Google Local Guide · Regular since 2022</span>
+          </div>
+        </div>
+        <span class="review-source">Google Review</span>
+      </div>
+    </div>
+    <div style="text-align:center;margin-top:2rem">
+      <span style="color:#2B5797;font-weight:600;font-size:0.9rem">Google 4.3 ⭐ · 120+ Reviews</span>
+    </div>
+  </div>
+</section>
+
+<!-- ===== VISIT ===== -->
+<section class="section visit-section" id="visit">
+  <div class="container">
+    <div class="visit-grid">
+      <img class="visit-photo reveal" src="photos_web/loc_photo_04.jpg" alt="Chaozhou Malaya storefront" loading="lazy">
+      <div class="visit-info reveal reveal-d1">
+        <span class="section-label" data-key="visitLabel">Visit Us</span>
+        <h3 data-key="visitTitle">Come Say Hello</h3>
+        <div class="visit-item">
+          <div class="visit-icon">📍</div>
+          <div class="visit-item-text">
+            <strong data-key="visitAddr">Address</strong>
+            <span>5/70 Doncaster Rd<br>Balwyn North VIC 3104<br><small style="color:#8B7355" data-key="visitAddrNote">Tucked inside the arcade — look for the red lantern.</small></span>
+          </div>
+        </div>
+        <div class="visit-item">
+          <div class="visit-icon">📞</div>
+          <div class="visit-item-text">
+            <strong data-key="visitPhone">Phone</strong>
+            <span><a href="tel:+61390788168">+61 3 9078 8168</a><br><small style="color:#8B7355" data-key="visitPhoneNote">Phone bookings only — Ruth or her daughter will take your call.</small></span>
+          </div>
+        </div>
+        <div class="visit-item">
+          <div class="visit-icon">🕐</div>
+          <div class="visit-item-text">
+            <strong data-key="visitHours">Hours</strong>
+            <div class="hours-grid">
+              <span class="day" data-key="hoursMon">Mon – Tue</span><span class="closed" data-key="hoursClosed">Closed</span>
+              <span class="day" data-key="hoursWed">Wed – Sun</span><span class="time">11:30 – 15:00</span>
+              <span class="day"></span><span class="time">17:30 – 20:30</span>
+            </div>
+          </div>
+        </div>
+        <div class="visit-item">
+          <div class="visit-icon">🍷</div>
+          <div class="visit-item-text">
+            <strong data-key="visitInfo">Good to Know</strong>
+            <span data-key="visitInfoText">BYO welcome · 30 seats · Takeaway available · Free street parking on Doncaster Rd</span>
+          </div>
+        </div>
+        <a href="tel:+61390788168" class="btn btn-red" style="margin-top:1rem" data-key="visitBtn">📞 Call to Reserve</a>
+      </div>
+    </div>
+
+    <!-- Google Maps -->
+    <div style="margin-top:2.5rem;border-radius:8px;overflow:hidden;box-shadow:0 4px 20px rgba(0,0,0,0.1)">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3151.8400621825624!2d145.0767!3d-37.7930!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6ad6450c3a0ab015%3A0x7e4f031a16d2b8d3!2s70%20Doncaster%20Rd%2C%20Balwyn%20North%20VIC%203104!5e0!3m2!1sen!2sau!4v1700000000000" width="100%" height="400" style="border:0;border-radius:8px" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- ===== GALLERY ===== -->
+<section class="section" style="background:#fff;padding:3rem 0">
+  <div class="container" style="text-align:center">
+    <span class="section-label" data-key="galLabel">A Peek Inside</span>
+    <h2 class="section-title" data-key="galTitle">The Warm Glow of Home</h2>
+    <div class="gallery-strip" style="margin-top:2rem">
+      <img src="photos_web/rg_interior_design.jpg" alt="Interior" loading="lazy">
+      <img src="photos_web/loc_photo_06.jpg" alt="Dining area" loading="lazy">
+      <img src="photos_web/loc_photo_08.jpg" alt="Restaurant" loading="lazy">
+      <img src="photos_web/c414-Chaozhou-Malaya-Bistro-Cafe-Balwyn-North-meals-2.jpg" alt="Meals" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-brand">Chaozhou Malaya Bistro Cafe</div>
+    <div class="footer-hand" data-key="footerTagline">Aunty's Kitchen · 阿嬷的厨房</div>
+    <p class="footer-tagline" data-key="footerLoc">5/70 Doncaster Rd, Balwyn North VIC 3104</p>
+    <div class="footer-social">
+      <a href="https://www.google.com/maps/place/Chaozhou+Malaya+Bistro+Cafe" target="_blank" rel="noopener" aria-label="Google Maps">📍</a>
+      <a href="https://www.instagram.com/explore/tags/chaozhoumalaya" target="_blank" rel="noopener" aria-label="Instagram">📷</a>
+      <a href="tel:+61390788168" aria-label="Phone">📞</a>
+    </div>
+    <div class="footer-divider"></div>
+    <p class="footer-credit">
+      Built with heart by <strong>Hermes × 高兴</strong>
+    </p>
+  </div>
+</footer>
+
+<!-- ===== SCRIPTS ===== -->
+<script>
+// ===== TRANSLATIONS =====
+const t = {
+  en: {
+    navBrand: ' · Chaozhou Malaya',
+    navStory: 'Our Story',
+    navDishes: 'Signature',
+    navMenu: 'Menu',
+    navReviews: 'Reviews',
+    navVisit: 'Visit',
+    heroTag: 'Melbourne · Balwyn North',
+    heroHand: "Aunty Ruth's Kitchen",
+    heroCn: '阿嬷的厨房',
+    heroSub: '"A One-Aunty Show of Southern Chinese Homestyle Hits" — The Age',
+    heroDesc: 'A tiny 30-seat hideaway tucked inside a quiet shopping arcade — where one mother\'s Chaozhou recipes meet the bold soul of Malaysian home cooking.',
+    heroBtn1: 'Explore Our Menu',
+    heroBtn2: 'Call to Book',
+    scroll: 'Scroll',
+    storyLabel: 'Our Story',
+    storyTitle: 'A Mother-Daughter Kitchen',
+    storyP1: 'In a hidden arcade off Doncaster Road, <strong>Aunty Ruth</strong> runs the show — a one-woman kitchen powered by decades of Chaozhou home cooking and a deep love for Malaysian flavours. Her daughter works the front of house, greeting every guest like family.',
+    storyP2: 'There are no shortcuts here. Every oyster omelette is fried to order. Every pot of Bak Kut Teh simmers for hours. The duck is braised the way Ruth\'s mother taught her in Shantou — slow, patient, and seasoned by instinct.',
+    storyQuote: '"I don\'t cook to impress. I cook the way I would for my own children — with love, and a little bit of chilli."',
+    storyP3: 'With just <strong>30 seats</strong> and two pairs of hands, Chaozhou Malaya is as intimate as it gets. Named a <strong style="color:#C0392B">Critics\' Pick</strong> by The Age and loved by locals who know to book ahead — this is the kind of place Melbourne does best.',
+    sigLabel: 'Signature Dishes',
+    sigTitle: 'The Four That Started It All',
+    sigSub: 'Every great kitchen has its anchors. These are ours.',
+    d1name: 'Oyster Omelette',
+    d1desc: 'Crispy-edged, gooey-centred — the Chaozhou classic done Ruth\'s way, with plump oysters and a secret starch blend passed down from Shantou.',
+    d2name: 'Braised Duck',
+    d2desc: 'Slow-braised in a master stock passed down from Shantou — tender, aromatic, and sliced thin over steamed rice. The dish that regulars drive across town for.',
+    d3name: 'Char Kuay Teow',
+    d3desc: 'Wok hei in every strand — flat rice noodles kissed by flame, with lap cheong, egg, cockles, and a proper sambal kick that hits all the right notes.',
+    d4name: 'Bak Kut Teh',
+    d4desc: 'Fragrant pork rib soup, slow-simmered with garlic and medicinal herbs. Served with youtiao and a side of chilli soy — the taste of a Klang morning.',
+    menuLabel: 'Our Menu',
+    menuTitle: "What's Cooking Today",
+    menuSub: '$20–40 per person · BYO welcome · Off-menu dishes available on request',
+    tabSoup: 'Soup',
+    tabStarters: 'Starters',
+    tabNoodles: 'Noodles',
+    tabChaozhou: 'Chaozhou',
+    tabChef: "Chef's Picks",
+    tabDessert: 'Dessert',
+    sig: 'Signature',
+    m1desc: 'Pork ribs simmered with garlic, star anise & medicinal herbs. Served with youtiao and steamed rice.',
+    m2desc: 'Delicate fish maw with crab meat in a clear, peppery broth — a Chaozhou banquet staple.',
+    m3desc: "Rich coconut curry soup with prawns, tofu puffs, egg & rice noodles. Ruth's Malaysian favourite.",
+    m4desc: 'Hand-wrapped pork & prawn wontons in a light, clear chicken broth with leafy greens.',
+    m5desc: 'The one that started it all — crispy, gooey, loaded with fresh oysters. Chaozhou street-food royalty.',
+    m6desc: 'Five-spice pork & prawn rolls wrapped in beancurd skin, deep-fried golden. Sweet chilli dip.',
+    m7desc: 'Flaky, buttery flatbread pulled by hand — served with dhal curry and a dollop of sambal.',
+    m8desc: 'Crispy Chaozhou-style spring rolls stuffed with jicama, carrot, mushroom & minced pork.',
+    m9desc: 'Wok-blistered flat noodles with lap cheong, prawns, cockles & bean sprouts. Serious wok hei.',
+    m10desc: 'Thick yellow noodles braised in dark soy with pork, squid & cabbage — KL-style, rich and smoky.',
+    m11desc: 'Delicate flat rice noodles in a clear pork bone broth with minced pork, fish balls & fried garlic.',
+    m12desc: 'Spicy fried egg noodles with tofu, potato & a squeeze of calamansi lime — mamak stall energy.',
+    m13desc: 'Whole leg, braised for hours in Shantou-style master stock with five-spice, soy & rock sugar. Served with braised eggs & tofu.',
+    m14desc: 'Whole pomfret steamed Cantonese-style with ginger, spring onion & soy — clean, sweet, and delicate. Subject to availability.',
+    m15desc: 'Twice-braised pork belly, melt-in-your-mouth tender, sandwiched in a fluffy steamed bun with coriander.',
+    m16desc: 'Crispy taro basket filled with stir-fried chicken, cashews & vegetables — a banquet showstopper. 48h pre-order.',
+    m17desc: "Aunty Ruth's take on the Peranakan classic — rich coconut gravy, tender chicken, potatoes & kaffir lime.",
+    m18desc: "Jumbo tiger prawns wok-tossed in Ruth's house-made sambal — fiery, tangy, and deeply savoury.",
+    m19desc: 'Tamarind-braised fish with okra & tomato in a tangy-spicy gravy — the taste of a Penang home kitchen.',
+    m20desc: 'Ruth sometimes cooks dishes that never make the printed menu. Ask when you book — you might get lucky.',
+    m21desc: 'Silky-smooth Chaozhou yam paste with gingko nuts & a drizzle of coconut cream — warm and comforting.',
+    m22desc: 'Chilled sago pearls with palm sugar syrup & coconut milk — the simplest Malaysian dessert, done right.',
+    m23desc: 'Green pandan jelly ribbons with shaved ice, red beans & gula melaka — a bowl of Malaysian childhood.',
+    m24desc: 'A rotating selection of house-made Nyonya kuih — layers of colour, coconut & nostalgia on a plate.',
+    revLabel: 'What People Say',
+    revTitle: 'Word of Mouth',
+    revSub: 'No PR agency. No marketing budget. Just people who ate here and had to tell someone.',
+    r1text: '"Mind-blowing. The precision in Ruth\'s oyster omelette — that crisp exterior giving way to something almost custardy inside — is technique you\'d expect at a fine-diner, not a 30-seat arcade hideaway. This is the real deal."',
+    r2text: '"A mother-daughter duo delivering some of Melbourne\'s most heartfelt Chaozhou-Malaysian cooking. The braised duck alone is worth the drive to Balwyn North. Critics\' Pick — and deservedly so."',
+    r3text: '"Ruth\'s Bak Kut Teh tastes like my grandmother\'s kitchen in Klang. The balance of herbs, the fall-apart ribs, the silence that falls over the table when it arrives — that\'s when you know the food is speaking."',
+    r4text: '"Reminds me of childhood. My mum used to make char kuay teow exactly like this — wok hei so strong you can smell it from the car park. I\'ve brought my whole family back three times now."',
+    visitLabel: 'Visit Us',
+    visitTitle: 'Come Say Hello',
+    visitAddr: 'Address',
+    visitAddrNote: 'Tucked inside the arcade — look for the red lantern.',
+    visitPhone: 'Phone',
+    visitPhoneNote: 'Phone bookings only — Ruth or her daughter will take your call.',
+    visitHours: 'Hours',
+    hoursMon: 'Mon – Tue',
+    hoursClosed: 'Closed',
+    hoursWed: 'Wed – Sun',
+    visitInfo: 'Good to Know',
+    visitInfoText: 'BYO welcome · 30 seats · Takeaway available · Free street parking on Doncaster Rd',
+    visitBtn: '📞 Call to Reserve',
+    galLabel: 'A Peek Inside',
+    galTitle: 'The Warm Glow of Home',
+    footerTagline: "Aunty's Kitchen · 阿嬷的厨房",
+    footerLoc: '5/70 Doncaster Rd, Balwyn North VIC 3104'
+  },
+  zh: {
+    navBrand: ' · 潮州马来小馆',
+    navStory: '我们的故事',
+    navDishes: '招牌菜',
+    navMenu: '菜单',
+    navReviews: '食评',
+    navVisit: '来找我们',
+    heroTag: '墨尔本 · Balwyn North',
+    heroHand: "Aunty Ruth's Kitchen",
+    heroCn: '阿嬷的厨房',
+    heroSub: '「一位阿嬷撑起的南方家常味道」— The Age',
+    heroDesc: '藏在购物拱廊里的小馆子，不过三十个座位。阿嬷用潮州人一代代传下来的方子，煮出了马来西亚家常菜的魂。',
+    heroBtn1: '浏览菜单',
+    heroBtn2: '来电订位',
+    scroll: '下滑',
+    storyLabel: '我们的故事',
+    storyTitle: '母女档的厨房',
+    storyP1: '在 Doncaster Road 一条不起眼的拱廊里，<strong>Aunty Ruth</strong> 一人掌勺——几十年的潮州家常功夫，加上对马来西亚味道的深深热爱。女儿在前厅招呼客人，像迎接家人一样温暖每一位走进来的食客。',
+    storyP2: '这里没有捷径。每一份蚝烙都是现点现煎，每一锅肉骨茶都慢炖数小时。卤鸭的做法，是 Ruth 的母亲在汕头教给她的——慢、耐心、凭感觉调味。',
+    storyP3: '只有 <strong>30 个座位</strong>，两双手，Chaozhou Malaya 就是墨尔本最温馨的小馆子。被 The Age 评为 <strong style="color:#C0392B">Critics\' Pick</strong>，深受懂得提前订位的本地食客喜爱——这就是墨尔本最拿手的那种店。',
+    storyQuote: '「我不是为了惊艳谁而做菜。我只是像做给自己的孩子吃一样——有爱，再加一点点辣椒。」',
+    sigLabel: '招牌菜',
+    sigTitle: '四道看家菜',
+    sigSub: '好厨房都有几道镇得住场子的菜。这四道，就是我们家的。',
+    d1name: '蚝烙 Oyster Omelette',
+    d1desc: '外酥内嫩——Ruth 版本的潮州经典街头美食，饱满的鲜蚝配上汕头传下来的秘制粉浆配方。',
+    d2name: '卤鸭 Braised Duck',
+    d2desc: '汕头老卤慢炖——肉质酥烂、香气四溢，切成薄片铺在热米饭上。熟客们愿意为它穿越大半个城市。',
+    d3name: '炒粿条 Char Kuay Teow',
+    d3desc: '每一根粿条都裹着镬气——火焰亲吻过的河粉，配上腊肠、鸡蛋、血蚶和一抹够劲的叁峇酱。',
+    d4name: '肉骨茶 Bak Kut Teh',
+    d4desc: '药材飘香的排骨汤，大蒜与滋补药材慢火熬煮。配油条和辣椒酱油——一口回到巴生的清晨。',
+    menuLabel: '我们的菜单',
+    menuTitle: '今天吃什么',
+    menuSub: '人均 $20–40 · 欢迎自带酒水 · 另有隐藏菜品可提前询问',
+    tabSoup: '汤品',
+    tabStarters: '前菜',
+    tabNoodles: '粉面',
+    tabChaozhou: '潮州特色',
+    tabChef: '主厨精选',
+    tabDessert: '甜品',
+    sig: '招牌',
+    m1desc: '排骨配大蒜、八角和滋补药材慢炖。配油条和白米饭。',
+    m2desc: '鲜嫩鱼鳔配蟹肉，清透胡椒汤底——潮州宴席经典。',
+    m3desc: '浓郁椰奶咖喱汤配大虾、豆腐泡、鸡蛋和米粉。Ruth 最爱的马来西亚味道。',
+    m4desc: '手工包制的猪肉鲜虾云吞，清淡鸡汤配绿叶蔬菜。',
+    m5desc: '一切从这里开始——酥脆、软嫩、满满的鲜蚝。潮州街头美食之王。',
+    m6desc: '五香猪肉虾仁卷，腐皮包裹炸至金黄。配甜辣酱。',
+    m7desc: '手拉酥脆黄油飞饼——配豆咖喱和一勺叁峇酱。',
+    m8desc: '酥脆潮式春卷，馅料有沙葛、胡萝卜、香菇和猪肉碎。',
+    m9desc: '镬气十足的炒河粉，配腊肠、大虾、血蚶和豆芽。浓郁镬气。',
+    m10desc: '粗黄面以黑酱油焖煮，配猪肉、鱿鱼和卷心菜——吉隆坡风格，浓郁烟熏。',
+    m11desc: '细嫩粿条配清透猪骨汤，加肉碎、鱼丸和炸蒜。',
+    m12desc: '辣炒鸡蛋面配豆腐、土豆和酸柑汁——嘛嘛档的味道。',
+    m13desc: '整只鸭腿，汕头老卤汁加五香、酱油和冰糖慢炖数小时。配卤蛋和卤豆腐。',
+    m14desc: '整条鲳鱼粤式清蒸，配姜丝、葱花和酱油——清甜细嫩。视当天供应情况而定。',
+    m15desc: '二次卤制的五花肉，入口即化，夹在松软的馒头里配香菜。',
+    m16desc: '酥脆芋泥篮，盛满炒鸡肉、腰果和蔬菜——宴席压轴菜。需提前48小时预订。',
+    m17desc: 'Ruth 版本的娘惹经典——浓郁椰浆咖喱，嫩滑鸡肉、土豆和青柠叶。',
+    m18desc: '虎虾以 Ruth 自制叁峇酱爆炒——火辣、酸甜、鲜香浓郁。',
+    m19desc: '罗望子炖鱼配秋葵和番茄，酸辣浓郁的酱汁——槟城家常厨房的味道。',
+    m20desc: 'Ruth 偶尔会做一些从未出现在菜单上的菜。订位时多问一句——说不定有惊喜。',
+    m21desc: '丝滑潮州芋泥配白果和椰浆——温暖治愈。',
+    m22desc: '冰镇西米露配椰糖浆和椰奶——最简单的马来西亚甜品，做到极致。',
+    m23desc: '绿色斑斓粉条配刨冰、红豆和椰糖——一碗马来西亚的童年回忆。',
+    m24desc: '当日精选自制娘惹粿——层层色彩、椰香和怀旧味道。',
+    revLabel: '食客评价',
+    revTitle: '口口相传',
+    revSub: '没有公关公司，没有营销预算。只有吃过一次就忍不住要告诉别人的人。',
+    r1text: '「惊艳。Ruth 做蚝烙的功力——酥脆的外皮下是近乎蛋奶冻般的嫩滑内心——这种水准你只会在高级餐厅期待，而不是一个藏在拱廊里的30座小馆。这才是真功夫。」',
+    r2text: '「一对母女档，端出了墨尔本最有温度的潮州马来西亚菜。光是为那道卤鸭跑一趟 Balwyn North 就值得了。Critics\' Pick——实至名归。」',
+    r3text: '「Ruth 的肉骨茶让我想起巴生祖母的厨房。药材的平衡、入口即化的排骨、上桌时整桌人的安静——那一刻你就知道，食物在说话。」',
+    r4text: '「让我想起小时候。我妈做的炒粿条就是这个味道——镬气浓到在停车场就能闻到。我已经带全家人来了三次了。」',
+    visitLabel: '来找我们',
+    visitTitle: '来坐坐',
+    visitAddr: '地址',
+    visitAddrNote: '藏在拱廊深处——看到红灯笼就到了。',
+    visitPhone: '电话',
+    visitPhoneNote: '仅接受电话订位——Ruth 或她女儿会亲自接听。',
+    visitHours: '营业时间',
+    hoursMon: '周一至周二',
+    hoursClosed: '休息',
+    hoursWed: '周三至周日',
+    visitInfo: '温馨提示',
+    visitInfoText: '欢迎自带酒水 · 30座 · 可外带 · Doncaster Rd 路边免费停车',
+    visitBtn: '📞 打电话订位',
+    galLabel: '馆内一瞥',
+    galTitle: '如家般的温暖',
+    footerTagline: "Aunty's Kitchen · 阿嬷的厨房",
+    footerLoc: '5/70 Doncaster Rd, Balwyn North VIC 3104'
+  }
+};
+
+let currentLang = 'en';
+
+function switchLang(lang) {
+  if (lang === currentLang) return;
+  currentLang = lang;
+  const texts = t[lang];
+
+  // Update all data-key elements
+  document.querySelectorAll('[data-key]').forEach(el => {
+    const key = el.dataset.key;
+    if (texts[key] !== undefined) {
+      // Don't replace if element has children with tags
+      if (el.children.length === 0 || key.startsWith('storyP') || key.startsWith('storyQ')) {
+        el.innerHTML = texts[key];
+      } else if (el.tagName === 'A' || el.tagName === 'BUTTON' || el.tagName === 'SPAN' || el.tagName === 'SMALL' || el.tagName === 'STRONG') {
+        el.innerHTML = texts[key];
+      }
+    }
+  });
+
+  // Update lang toggle buttons
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.lang === lang);
+  });
+
+  // Update html lang
+  document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+
+  // Update page title
+  document.title = lang === 'zh'
+    ? 'Chaozhou Malaya Bistro Cafe — 阿嬷的厨房 · Aunty\'s Kitchen'
+    : 'Chaozhou Malaya Bistro Cafe — Aunty\'s Kitchen · 阿嬷的厨房';
+
+  localStorage.setItem('chaozhou-malaya-lang', lang);
+}
+
+// Lang toggle click handlers
+document.querySelectorAll('.lang-btn').forEach(btn => {
+  btn.addEventListener('click', () => switchLang(btn.dataset.lang));
+});
+
+// ===== SCROLL REVEAL =====
+const observerOptions = { threshold: 0.12, rootMargin: '0px 0px -40px 0px' };
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('visible');
+      observer.unobserve(entry.target);
+    }
+  });
+}, observerOptions);
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+// ===== NAV SCROLL =====
+const nav = document.getElementById('nav');
+window.addEventListener('scroll', () => {
+  nav.classList.toggle('scrolled', window.scrollY > 60);
+});
+
+// ===== MOBILE NAV =====
+const mobileToggle = document.getElementById('mobileToggle');
+const navLinks = document.getElementById('navLinks');
+mobileToggle.addEventListener('click', () => {
+  mobileToggle.classList.toggle('open');
+  navLinks.classList.toggle('open');
+});
+navLinks.querySelectorAll('a').forEach(link => {
+  link.addEventListener('click', () => {
+    mobileToggle.classList.remove('open');
+    navLinks.classList.remove('open');
+  });
+});
+
+// ===== MENU TABS =====
+document.querySelectorAll('.menu-tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    document.querySelectorAll('.menu-tab').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.menu-content').forEach(c => c.classList.remove('active'));
+    tab.classList.add('active');
+    const target = document.getElementById('tab-' + tab.dataset.tab);
+    if (target) target.classList.add('active');
+  });
+});
+
+// ===== SMOOTH SCROLL =====
+document.querySelectorAll('a[href^="#"]').forEach(link => {
+  link.addEventListener('click', (e) => {
+    const href = link.getAttribute('href');
+    if (href === '#') return;
+    const target = document.querySelector(href);
+    if (target) {
+      e.preventDefault();
+      const navH = nav.offsetHeight;
+      const pos = target.getBoundingClientRect().top + window.scrollY - navH - 20;
+      window.scrollTo({ top: pos, behavior: 'smooth' });
+    }
+  });
+});
+
+// ===== RESTORE LANGUAGE PREFERENCE =====
+const savedLang = localStorage.getItem('chaozhou-malaya-lang');
+if (savedLang && savedLang !== 'en') {
+  switchLang(savedLang);
+}
+</script>
+</body>
+</html>
